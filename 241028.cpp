@@ -1,50 +1,50 @@
 // **********************************************
-// �� �� : �Ǽ��� ����� ���� �� �� ���ϱ� 
-// �� ¥ : 2024�� 10��28 ��
-// �ۼ��� : 2101073 ��ä��
+// 제 목 : 실수부 허수부 구성 후 합 구하기 
+// 날 짜 : 2024년 10월28 일
+// 작성자 : 2101073 이채은
 // **********************************************
-#include <iostream>   // ������� ���� ��� ���� ����
+#include <iostream>   // 입출력을 위한 헤더 파일 포함
 using namespace std;
 //1-1
 /*
-#include <iostream>   // ������� ���� ��� ���� ����
+#include <iostream>   // 입출력을 위한 헤더 파일 포함
 using namespace std;  
 
 class Complex {
 private:
-    int real;          // �Ǽ� 
-    int img;           // ���
+    int real;          // 실수 
+    int img;           // 허수
 
 public:
-    // �⺻ ������: �Ǽ��ο� ����θ� 0���� �ʱ�ȭ
+    // 기본 생성자: 실수부와 허수부를 0으로 초기화
     Complex() : real(0), img(0) {}
 
-    // �Ű������� �ִ� ������: �Ǽ��ο� ����� �ʱ�ȭ
+    // 매개변수가 있는 생성자: 실수부와 허수부 초기화
     Complex(int r, int i) : real(r), img(i) {}
 
-    // ���Ҽ� ���
+    // 복소수 출력
     void show() const {
-        cout << real << " + " << img << "j" << endl;   // ���Ҽ� �������� ���
+        cout << real << " + " << img << "j" << endl;   // 복소수 형식으로 출력
     }
 
-    // ���Ҽ� ���� ������ ���� private ��� ���� ���� ���
+    // 복소수 덧셈 연산을 위해 private 멤버 변수 접근 허용
     friend Complex ComplexAdd(const Complex& c1, const Complex& c2);
 };
 
-// ���� �Լ�: �� ���Ҽ��� ���ϰ� ��� ��ȯ
+// 전역 함수: 두 복소수를 더하고 결과 반환
 Complex ComplexAdd(const Complex& c1, const Complex& c2) {
-    // �Ǽ��γ���, ����γ��� ���� �� ���Ҽ� ��ȯ
+    // 실수부끼리, 허수부끼리 더한 새 복소수 반환
     return Complex(c1.real + c2.real, c1.img + c2.img);
 }
 
 int main() {
-    Complex x(2, 3);   // ���Ҽ� x �ʱ�ȭ 
-    Complex y(-5, 10); // ���Ҽ� y �ʱ�ȭ 
-    Complex sum;       // ���� ������ ���Ҽ� sum ����
+    Complex x(2, 3);   // 복소수 x 초기화 
+    Complex y(-5, 10); // 복소수 y 초기화 
+    Complex sum;       // 합을 저장할 복소수 sum 선언
 
-    sum = ComplexAdd(x, y); // x�� y�� �� ��� �� sum�� ����
+    sum = ComplexAdd(x, y); // x와 y의 합 계산 후 sum에 저장
 
-    cout << "�� ���Ҽ��� ���� "; // ��� ���
+    cout << "두 복소수의 합은 "; // 결과 출력
     sum.show();               
 
     return 0;
@@ -54,105 +54,113 @@ int main() {
 /*
 lass Complex {
 private:
-    int real;          // �Ǽ��� 
-    int img;           // ����� 
+    int real;          // 실수부 
+    int img;           // 허수부 
 
 public:
-    // �Ǽ��ο� ����θ� 0���� �ʱ�ȭ
+    // 실수부와 허수부를 0으로 초기화
     Complex() : real(0), img(0) {}
 
-    // �Ǽ��ο� ����� �ʱ�ȭ
+    // 실수부와 허수부 초기화
     Complex(int r, int i) : real(r), img(i) {}
 
-    // ���Ҽ� ��� 
+    // 복소수 출력 
     void show() const {
-        cout << real << " + " << img << "j" << endl;   // ���Ҽ� �������� ���
+        cout << real << " + " << img << "j" << endl;   // 복소수 형식으로 출력
     }
 
-    // ComplexManager Ŭ������ ��� �Լ��� private ����� ���� �����ϵ��� friend ����
+    // ComplexManager 클래스의 멤버 함수가 private 멤버에 접근 가능하도록 friend 선언
     friend class ComplexManager;
 };
 
 class ComplexManager {
 public:
-    // ComplexAdd: �� ���� Complex ��ü�� ���� ��� ��ȯ
+    // ComplexAdd: 두 개의 Complex 객체를 더해 결과 반환
     Complex ComplexAdd(const Complex& c1, const Complex& c2) {
-        // ���ο� Complex ��ü ��ȯ
+        // 새로운 Complex 객체 반환
         return Complex(c1.real + c2.real, c1.img + c2.img);
     }
 };
 
 int main() {
-    Complex x(2, 3);   // ���Ҽ� x �ʱ�ȭ
-    Complex y(-5, 10); //���Ҽ� y �ʱ�ȭ 
-    ComplexManager manager; // ComplexManager ��ü ����
-    Complex sum;       // �� ����
+    Complex x(2, 3);   // 복소수 x 초기화
+    Complex y(-5, 10); //복소수 y 초기화 
+    ComplexManager manager; // ComplexManager 객체 생성
+    Complex sum;       // 합 저장
 
-    sum = manager.ComplexAdd(x, y); // x�� y�� �� ��
+    sum = manager.ComplexAdd(x, y); // x와 y의 합 장
 
-    cout << "�� ���Ҽ��� ���� "; // ��� ���
-    sum.show();                // sum ���
+    cout << "두 복소수의 합은 "; // 결과 출력
+    sum.show();                // sum 출력
 
-    return 0; // ���α׷� ���� ����
+    return 0; // 프로그램 정상 종료
 }
 */
 //1-3
 /*
-#include <iostream>   // ����� ó���� ���� ��� ���� ����
-using namespace std;   // ǥ�� ���ӽ����̽� ���
+#include <iostream>   // 입출력 처리를 위한 헤더 파일 포함
+using namespace std;   // 표준 네임스페이스 사용
 
-// Complex Ŭ���� ����: ���Ҽ��� ǥ���ϱ� ���� Ŭ����
+// Complex 클래스 정의: 복소수를 표현하기 위한 클래스
 class Complex {
 private:
-    int real;          // �Ǽ��� ��� ����
-    int img;           // ����� ��� ����
+    int real;          // 실수부 멤버 변수
+    int img;           // 허수부 멤버 변수
 
 public:
-    // �⺻ ������: �Ǽ��ο� ����θ� 0���� �ʱ�ȭ
+    // 기본 생성자: 실수부와 허수부를 0으로 초기화
     Complex() : real(0), img(0) {}
 
-    // �Ű������� �ִ� ������: �Ǽ��ο� ����θ� ���޹޾� �ʱ�ȭ
+    // 매개변수가 있는 생성자: 실수부와 허수부를 전달받아 초기화
     Complex(int r, int i) : real(r), img(i) {}
 
-    // ���Ҽ��� ���� ����ϴ� �Լ�
+    // 복소수의 값을 출력하는 함수
     void show() const {
-        cout << real << " + " << img << "j" << endl;   // ���Ҽ� �������� ���
+        cout << real << " + " << img << "j" << endl;   // 복소수 형식으로 출력
     }
 
-    // ComplexManager Ŭ������ private ����� ���� �����ϵ��� friend ����
+    // ComplexManager 클래스가 private 멤버에 접근 가능하도록 friend 선언
     friend class ComplexManager;
 };
 
-// ComplexManager Ŭ���� ����: ���Ҽ� ������ ���� Ŭ����
+// ComplexManager 클래스 정의: 복소수 연산을 위한 클래스
 class ComplexManager {
 public:
-    // ComplexAdd �Լ�: �� ���Ҽ��� ���� ����� ��ȯ
+    // ComplexAdd 함수: 두 복소수를 더해 결과를 반환
     Complex ComplexAdd(const Complex& c1, const Complex& c2) {
-        return Complex(c1.real + c2.real, c1.img + c2.img); // �Ǽ��ο� ����� ���� ���� ���ο� Complex ��ü ��ȯ
+        return Complex(c1.real + c2.real, c1.img + c2.img); // 실수부와 허수부 각각 더해 새로운 Complex 객체 반환
     }
 
-    // ComplexSub �Լ�: �� ���Ҽ��� ���� ���� ����� ��ȯ
+    // ComplexSub 함수: 두 복소수의 차를 구해 결과를 반환
     Complex ComplexSub(const Complex& c1, const Complex& c2) {
-        return Complex(c1.real - c2.real, c1.img - c2.img); // �Ǽ��ο� ����� ���� ���� ���ο� Complex ��ü ��ȯ
+        return Complex(c1.real - c2.real, c1.img - c2.img); // 실수부와 허수부 각각 빼서 새로운 Complex 객체 반환
     }
 };
 
 int main() {
-    Complex x(5, 5);   // ù ��° ���Ҽ� x �ʱ�ȭ (5 + 5j)
-    Complex y(2, 2);   // �� ��° ���Ҽ� y �ʱ�ȭ (2 + 2j)
-    ComplexManager man; // ���Ҽ� ������ ���� ComplexManager ��ü ����
-    Complex sum, sub;  // ������ ���� ����� ������ ���Ҽ� ��ü ����
+    Complex x(5, 5);   // 첫 번째 복소수 x 초기화 (5 + 5j)
+    Complex y(2, 2);   // 두 번째 복소수 y 초기화 (2 + 2j)
+    ComplexManager man; // 복소수 연산을 위한 ComplexManager 객체 생성
+    Complex sum, sub;  // 덧셈과 뺄셈 결과를 저장할 복소수 객체 선언
 
-    // �� ���Ҽ��� �� ���
+    // 두 복소수의 합 계산
     sum = man.ComplexAdd(x, y);
-    cout << "�� ���Ҽ��� ���� "; // ���� ��� ���
-    sum.show();                // ���� ����ϴ� show() �Լ� ȣ��
+    cout << "두 복소수의 합은 "; // 덧셈 결과 출력
+    sum.show();                // 합을 출력하는 show() 함수 호출
 
-    // �� ���Ҽ��� �� ���
+    // 두 복소수의 차 계산
     sub = man.ComplexSub(x, y);
-    cout << "�� ���Ҽ��� ���� "; // ���� ��� ���
-    sub.show();                 // ���� ����ϴ� show() �Լ� ȣ��
+    cout << "두 복소수의 차는 "; // 뺄셈 결과 출력
+    sub.show();                 // 차를 출력하는 show() 함수 호출
 
-    return 0; // ���α׷� ���� ����
+    return 0; // 프로그램 정상 종료
 }
 */
+
+//2-1 
+//함수 중복을 설명하시오. : 동일한 이름을 가진 여러 함수를 정의할 수 있는 기능 
+    //( 함수의 이름은 같으나 매개변수의 개수나 타입 다르게 선언 가능)  
+// 연산자 중복을 설명하시오. : 기존 연산자의 기능을 클래스에 맞게 새롭게 정의한 것
+// 연산자 함수란 무엇인가? : 연산자를 객체의 특성에 맞게 재정의하는 함수
+// 객체 지향형 언어의 특징 중의 하나인 다형성의 의미를 설명하시오.
+     //: 같은 이름의 함수나 연산자가 여러 타입에 따라 다른 동작을 하게 하는 객체 지향 프로그램 
