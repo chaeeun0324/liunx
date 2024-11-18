@@ -1,9 +1,12 @@
 ![image](https://github.com/user-attachments/assets/3688746e-ac53-4b1c-99f1-36e7914b99dd)
 
 템플릿 클래스 Container를 작성하고자 한다
+
 template <class T> class Container { 
+
  ________ //T 타입의 포인터 p를 선언하라
  ________ // 배열의 크기를 나타내는 변수 size를 선언하라.
+ 
  public : 
    Container (int n);
    ~Container();
