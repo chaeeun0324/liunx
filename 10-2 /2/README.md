@@ -41,8 +41,7 @@ template <class T> class Container {
 
    (6) 문제 (5)에서 생성한 객체 c에 set() 함수를 이용하여 알파벳 'a' ~ 'z' 를 삽입하고, get() 함수를 이요하여 반대순으로 화면에 출력하는 main() 함수를 작성하라 
 
-   int main() {
-    Container<char> c(26); // 알파벳 문자를 저장하기 위한 크기 26 컨테이너 생성
+   
 
     // 'a'부터 'z'까지 저장
     for (int i = 0; i < 26; i++) {
